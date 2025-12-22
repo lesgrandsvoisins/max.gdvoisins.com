@@ -1,11 +1,11 @@
 ---
 pageInfo:
-  title: Dashy
-  description: Project Management Panel
-  logo: 'https://i.ibb.co/fGnr01r/astro-dab.png'
+  title: Max Tableau de Pord
+  description: Serveur Paris Le Nuage de Marjan Janjic
+  logo: 'https://www.lesgrandsvoisins.com/medias/images/max-janjic.min-1200x350.jpg'
   navLinks:
-  - title: GitHub
-    path: https://github.com/Lissy93/dashy
+  - title: Drive
+    path: https://cp.roses.gdvoisins.com
   - title: Quick Start
     path: https://dashy.to/docs/quick-start
   - title: Documentation
