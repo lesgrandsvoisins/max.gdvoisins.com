@@ -2,6 +2,7 @@
 let 
     oidcMaxSecret = import ./secrets/oidc-max-secret.nix;
     jwtVouchSecret = import ./secrets/jwt-vouch-secret.nix;
+    oauth2IP = "192.168.1.10";
 in
 {
     users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun" "dashy"];
@@ -27,7 +28,7 @@ in
       
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
-      httpAddress = "0.0.0.0:12345"; # where oauth2-proxy listens
+      httpAddress = "${oauth2IP}:12345"; # where oauth2-proxy listens
       # nginx.proxy = "max.gdvoisins.com";
       nginx = {
         domain = "max.gdvoisins.com";
@@ -42,7 +43,7 @@ in
         key = "/var/lib/acme/max.gdvoisins.com/key.pem";
         # certificate = "/var/run/dashy/ssl/cert.pem";
         # key = "/var/run/dashy/ssl/key.pem";
-        httpsAddress = "0.0.0.0:41443";
+        httpsAddress = "${oauth2IP}:41443";
       };
       redirectURL = "https://max.gdvoisins.com/oauth2/callback";
       redeemURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token";
