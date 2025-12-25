@@ -178,7 +178,7 @@ security.acme.acceptTerms = true;
             # proxy_set_header X-Forwarded-Host $host;
             # proxy_set_header X-Forwarded-Proto $scheme;
           '';
-        }	
+        };
         "/oauth2/auth" = {
           proxyPass = "https://max.local:41443";
           
