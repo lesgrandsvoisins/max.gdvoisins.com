@@ -114,6 +114,8 @@ security.acme.acceptTerms = true;
         proxyPass = "https://max.local:8443";
  			  recommendedProxySettings = true;
         extraConfig = ''
+          add_header Access-Control-Allow-Origin *;
+          # add_header Access-Control-Allow-Origin https://max.local:8443;
           proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
         '';
  		 };	

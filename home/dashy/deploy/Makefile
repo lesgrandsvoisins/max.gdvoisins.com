@@ -1,5 +1,6 @@
 install:
 	yarn --ignore-engines
+	yarn --ignore-engines upgrade
 	yarn --ignore-engines build
 	yarn --ignore-engines start
 
@@ -10,6 +11,7 @@ sassup:
 run:
 	PORT=8080 \
 	HOST=max.local \
+	BASE_URL=https://max.gdvoisins.com \
 	NODE_ENV=production \
 	SSL_PRIV_KEY_PATH=/var/run/dashy/ssl/key.pem \
 	SSL_PUB_KEY_PATH=/var/run/dashy/ssl/cert.pem \
