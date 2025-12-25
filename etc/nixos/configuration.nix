@@ -16,13 +16,17 @@
 
   networking = {
     hostName = "max"; # Define your hostname.
-    hosts = { "127.0.0.2" = ["max" "max.local"];};
+    hosts = { "127.0.0.2" = ["max.local"];};
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  systemd.tmpfiles.rules = [
+    "d /var/run/dashy/ssl 0755 dashy nginx"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
