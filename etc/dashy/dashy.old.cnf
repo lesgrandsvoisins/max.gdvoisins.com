@@ -22,11 +22,11 @@ appConfig:
     searchEngine: 'google'
     openingMethod: 'newtab'
   enableErrorReporting: true
-  allowConfigEdit: false
+  allowConfigEdit: true
   enableFontAwesome: true
   fontAwesomeKey: 2e949c5bf4
   faviconApi: faviconkit
-  workspaceLandingUrl: https://dashy.to
+  workspaceLandingUrl: https://max.gdvoisins.com
   enableMultiTasking: false
 
 sections:
