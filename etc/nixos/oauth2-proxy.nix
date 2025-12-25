@@ -1,6 +1,6 @@
 { config, pkgs, lib, filestash, ... }:
 let 
-    oidcMaxSecret = import ./secrets/oidc-roses-secret.nix;
+    oidcMaxSecret = import ./secrets/oidc-max-secret.nix;
     jwtVouchSecret = import ./secrets/jwt-vouch-secret.nix;
 in
 {
@@ -19,13 +19,13 @@ in
       # # clientSecret = "your-client-secret";
       
       # # Cookie settings
-      cookie.secret = "xyT0uniw4ybkjUEHx8yf38s0xa2fjIhg7OS1AXxJaew="; # generate with: openssl rand -base64 32 | head -c 32 | base64
+      cookie.secret = "L053djhCZFhjakYwc25leXdFRU9xWnM2U3FMSk9HSDA="; # generate with: openssl rand -base64 32 | head -c 32 | base64
       cookie.httpOnly = true;
       cookie.secure = true;
       
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
-      httpAddress = "max.gdvoisins.com:1234"; # where oauth2-proxy listens
+      httpAddress = "0.0.0.0:41443"; # where oauth2-proxy listens
       reverseProxy = false;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
