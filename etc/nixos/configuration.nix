@@ -111,7 +111,7 @@ security.acme.acceptTerms = true;
  			  recommendedProxySettings = true;
         extraConfig = ''
           proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
-        ''
+        '';
  		 };	
  	};
  };
