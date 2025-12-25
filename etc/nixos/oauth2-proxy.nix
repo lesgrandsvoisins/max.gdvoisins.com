@@ -17,6 +17,8 @@ in
       clientID = "maxdash";
       keyFile = "/etc/.secrets/.maxdash_oauthproxy_keyfile";
       # # clientSecret = "your-client-secret";
+
+      setXauthrequest = true;
       
       # # Cookie settings
       cookie.secret = "L053djhCZFhjakYwc25leXdFRU9xWnM2U3FMSk9HSDA="; # generate with: openssl rand -base64 32 | head -c 32 | base64
@@ -25,8 +27,8 @@ in
       
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
-      httpAddress = "max.local:1234"; # where oauth2-proxy listens
-      reverseProxy = false;
+      httpAddress = ":1234"; # where oauth2-proxy listens
+      reverseProxy = true;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
       tls = {
@@ -35,7 +37,7 @@ in
         # key = "/var/lib/acme/max.gdvoisins.com/key.pem";
         certificate = "/var/run/dashy/ssl/cert.pem";
         key = "/var/run/dashy/ssl/key.pem";
-        httpsAddress = "max.local:41443";
+        httpsAddress = ":41443";
       };
       redirectURL = "https://max.gdvoisins.com/oauth2/callback";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
