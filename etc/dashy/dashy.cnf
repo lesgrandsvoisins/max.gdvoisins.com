@@ -40,16 +40,14 @@ appConfig:
     searchEngine: 'google'
     openingMethod: 'newtab'
   enableErrorReporting: true
-  allowConfigEdit: false
+  allowConfigEdit: true
   enableFontAwesome: true
   fontAwesomeKey: 2e949c5bf4
   faviconApi: faviconkit
-  workspaceLandingUrl: https://dashy.to
-  enableMultiTasking: false
+  workspaceLandingUrl: https://max.gdvoisins.com
+  enableMultiTasking: true
   language: sr
   
-
-
 sections:
   - name: Sites principaux
     items:
