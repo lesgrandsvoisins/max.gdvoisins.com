@@ -252,7 +252,9 @@ security.acme.acceptTerms = true;
     python311Packages.pylibjpeg-libjpeg
     busybox
     gnumake
-    dashy-ui
+    nodejs
+    nodenv
+    yarn
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
