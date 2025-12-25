@@ -11,8 +11,8 @@ run:
 	PORT=8080 \
 	HOST=localhost \
 	NODE_ENV=production \
-	SSL_PRIV_KEY_PATH=/home/dashy/deploy/ssl/key.pem \
-	SSL_PUB_KEY_PATH=/home/dashy/deploy/ssl/cert.pem \
+	SSL_PRIV_KEY_PATH=/var/run/dashy/ssl/key.pem \
+	SSL_PUB_KEY_PATH=/var/run/dashy/ssl/cert.pem \
 	SSL_PORT=8443 \
 	yarn --ignore-engines start
 
