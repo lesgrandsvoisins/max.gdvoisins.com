@@ -72,8 +72,8 @@ in
       #   cookie-samesite="none";
         cookie-secret="NgbKPVOqtJndsvg78GuR22BwasVS1J5u";
       #   cookie-secure="false";
-      #   email-domain="*" ;
-        email-domains="[\"*\"]";
+        email-domain="*" ;
+        # email-domains="[\"*\"]";
         scope="openid email profile";
       #   http-address=":4180";
       #   https-address=":41443";
