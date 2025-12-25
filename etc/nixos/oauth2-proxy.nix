@@ -27,7 +27,7 @@ in
       
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
-      httpAddress = "max.localhost:1234"; # where oauth2-proxy listens
+      httpAddress = "max.local:1234"; # where oauth2-proxy listens
       # nginx.proxy = "max.gdvoisins.com";
       # nginx = {
       #   domain = "max.gdvoisins.com";
@@ -41,7 +41,7 @@ in
         # key = "/var/lib/acme/max.gdvoisins.com/key.pem";
         certificate = "/var/run/dashy/ssl/cert.pem";
         key = "/var/run/dashy/ssl/key.pem";
-        httpsAddress = "max.localhost:41443";
+        httpsAddress = "max.local:41443";
       };
       redirectURL = "https://max.gdvoisins.com/oauth2/callback";
       redeemURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token";
