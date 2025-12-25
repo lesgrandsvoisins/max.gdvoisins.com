@@ -28,6 +28,7 @@ in
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
       httpAddress = ":1234"; # where oauth2-proxy listens
+      proxy = "max.gdvoisins.com";
       reverseProxy = true;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
@@ -40,8 +41,12 @@ in
         httpsAddress = ":41443";
       };
       redirectURL = "https://max.gdvoisins.com/oauth2/callback";
+      redeemURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
       loginURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/auth";
+      # profileURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/userinfo";
+      proxyPrefix = "/oauth2";
+
       # validateURL = "";
       extraConfig = {
         # codeChallengeMethod = "S256";
