@@ -29,6 +29,8 @@ in
 
   systemd.tmpfiles.rules = [
     "d /var/run/dashy/ssl 0755 dashy nginx"
+    "f /var/run/dashy/ssl/key.pem 0640 dashy nginx"
+    "f /var/run/dashy/ssl/cert.pem 0644 dashy nginx"
   ];
 
   # Enable networking

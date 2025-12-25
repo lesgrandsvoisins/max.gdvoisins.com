@@ -4,7 +4,7 @@ let
     jwtVouchSecret = import ./secrets/jwt-vouch-secret.nix;
 in
 {
-    users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun"];
+    users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun" "dashy"];
 
     services.oauth2-proxy = {
       enable = true;
