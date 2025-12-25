@@ -25,15 +25,17 @@ in
       
       # # Additional settingsenvironment.systemPackages = with pkgs; [
       # # upstream = "http://localhost:1234"; # your backend service
-      httpAddress = "0.0.0.0:41443"; # where oauth2-proxy listens
+      httpAddress = "max.local:1234"; # where oauth2-proxy listens
       reverseProxy = false;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
       tls = {
         enable = true;
-        certificate = "/var/lib/acme/max.gdvoisins.com/fullchain.pem";
-        key = "/var/lib/acme/max.gdvoisins.com/key.pem";
-        httpsAddress = "0.0.0.0:41443";
+        # certificate = "/var/lib/acme/max.gdvoisins.com/fullchain.pem";
+        # key = "/var/lib/acme/max.gdvoisins.com/key.pem";
+        certificate = "/var/run/dashy/ssl/cert.pem";
+        key = "/var/run/dashy/ssl/key.pem";
+        httpsAddress = "max.local:41443";
       };
       redirectURL = "https://max.gdvoisins.com:41443/oauth2/callback";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
