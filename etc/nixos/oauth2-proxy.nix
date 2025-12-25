@@ -30,11 +30,11 @@ in
       # # upstream = "http://localhost:1234"; # your backend service
       httpAddress = "${oauth2IP}:12345"; # where oauth2-proxy listens
       # nginx.proxy = "max.gdvoisins.com";
-      nginx = {
-        domain = "max.gdvoisins.com";
-        proxy = "max.gdvoisins.com";
-      };
-      reverseProxy = true;
+      # nginx = {
+      #   domain = "max.gdvoisins.com";
+      #   proxy = "max.gdvoisins.com";
+      # };
+      reverseProxy = false;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
       tls = {
@@ -45,7 +45,7 @@ in
         # key = "/var/run/dashy/ssl/key.pem";
         httpsAddress = "${oauth2IP}:41443";
       };
-      redirectURL = "https://max.gdvoisins.com/oauth2/callback";
+      redirectURL = "https://max.gdvoisins.com:41443/oauth2/callback";
       redeemURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
       loginURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/auth";
@@ -84,7 +84,7 @@ in
         pass-host-header="true" ;
         provider="keycloak-oidc";
         proxy-prefix="/oauth2" ;
-        redirect-url="https://max.gdvoisins.com/oauth2/callback";
+        redirect-url="https://max.gdvoisins.com:41443/oauth2/callback";
         request-logging="true";
         show-debug-on-error="true";
         reverse-proxy="true";
