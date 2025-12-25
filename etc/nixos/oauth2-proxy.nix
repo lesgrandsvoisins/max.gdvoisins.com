@@ -45,7 +45,7 @@ in
         # key = "/var/run/dashy/ssl/key.pem";
         httpsAddress = "${oauth2IP}:41443";
       };
-      redirectURL = "https://max.gdvoisins.com/oauth2/callback";
+      redirectURL = "https://max.gdvoisins.com:41443/oauth2/callback";
       redeemURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
       loginURL = "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/auth";
