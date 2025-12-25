@@ -29,9 +29,10 @@ in
       # # upstream = "http://localhost:1234"; # your backend service
       httpAddress = "max.local:1234"; # where oauth2-proxy listens
       # nginx.proxy = "max.gdvoisins.com";
-      # nginx = {
-      #   domain = "max.gdvoisins.com";
-      # };
+      nginx = {
+        domain = "max.gdvoisins.com";
+        prox = "max.gdvoisins.com";
+      };
       reverseProxy = true;
       # upstream = "http://127.0.0.1:4180";
       upstream = "file:///var/www/default";
