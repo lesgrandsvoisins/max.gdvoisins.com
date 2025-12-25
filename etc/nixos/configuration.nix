@@ -101,7 +101,8 @@ security.acme.acceptTerms = true;
  		enableACME = true;
  		forceSSL = true;
  		 locations."/" = {
- 			proxyPass = "http://localhost:8080";
+ 			# proxyPass = "http://localhost:8080";
+ 			proxyPass = "http://127.0.0.2:4000";
  			 recommendedProxySettings = true;
  		 };	
  	};

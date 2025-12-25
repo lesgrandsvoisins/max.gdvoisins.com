@@ -91,7 +91,6 @@ sections:
         description: Webmail et serveur mail des Grands Voisins
       - title: meet
         provider: Meet (Jitsi)
-        techno: Jitsi
         icon: 👨‍👩‍👧‍👦
         color: "#0074e0"
         url: https://jitsi.lgv.info/lesgrandsvoisins
