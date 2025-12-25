@@ -169,7 +169,8 @@ security.acme.acceptTerms = true;
           '';
         };
         "/oauth2" = {
-          recommendedProxySettings = true;
+          # recommendedProxySettings = true;
+          recommendedProxySettings = false;
           proxyPass = "https://${oauth2IP}:41443";
           extraConfig = ''
             # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
@@ -185,7 +186,7 @@ security.acme.acceptTerms = true;
         };
         "/oauth2/auth" = {
           proxyPass = "https://${oauth2IP}:41443";
-          
+          recommendedProxySettings = false;
           extraConfig = ''
             # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
             proxy_ssl_trusted_certificate /var/lib/acme/max.gdvoisins.com/fullchain.pem;
