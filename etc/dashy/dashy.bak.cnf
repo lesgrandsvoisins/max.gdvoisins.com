@@ -52,30 +52,39 @@ appConfig:
 sections:
   - name: Sites principaux
     items:
-      - id: www
+      - &ref_0
         title: www
         description: Portail lesgrandsvoisins.com
         icon: 🏠
         url: https://www.lesgrandsvoisins.com
         provider: Les Grands Voisins(.com)
-        - id: blog
+        id: 0_1643_www
+      - &ref_1
         title: blog
         provider: Blog LesGrandsVoisins.com
         icon: 📰
         url: https://blog.lesgrandsvoisins.com
         description: Blog des Grands Voisins
-        - id: gdvoisins
+        id: 1_1643_blog
+      - &ref_2
         title: gdvoisins
         provider: G D Voisins
         icon: 🧭
         url: https://www.gdvoisins.com
         description: Tableau de bord des outils libres
-        - id: documentation
+        id: 2_1643_gdvoisins
+      - &ref_3
         title: documentation
         description: Documentation sur les outils
         icon: 📖
         url: https://quartz.resdigita.com
         provider: Documentation
+        id: 3_1643_documentation
+    filteredItems:
+      - *ref_0
+      - *ref_1
+      - *ref_2
+      - *ref_3
   - name: Outils Libres
     icon: fas fa-code
     displayData:
@@ -84,178 +93,239 @@ sections:
       itemCountX: 5
       cols: 2
     items:
-      - id: webmail
+      - &ref_4
         title: webmail
         provider: Web Mail
         icon: ✉️
         url: https://mail.lesgrandsvoisins.com
         description: Webmail et serveur mail des Grands Voisins
-        - id: meet
+        id: 0_1281_webmail
+      - &ref_5
         title: meet
         provider: Meet (Jitsi)
         icon: 👨‍👩‍👧‍👦
         url: https://jitsi.lgv.info/lesgrandsvoisins
         description: Salle de réunion Jitsi en visioconférence
-        - id: mots-de-passe
+        id: 1_1281_meet
+      - &ref_6
         title: mots-de-passe
         provider: Mots-de-passe (Vaultwarden)
         icon: 🔑
         url: https://vw.lgv.info/
         description: Vaultwarden pour gérer nos mots de passe
+        id: 2_1281_motsdepasse
+    filteredItems:
+      - *ref_4
+      - *ref_5
+      - *ref_6
   - name: Outils Libres SSO
     items:
-      - id: drive (roses copyparty)
+      - &ref_7
         title: drive (roses copyparty)
         provider: Drive (Roses CopyParty)
         icon: 📂
         url: https://cp.roses.gdvoisins.com/
         description: Partager des fichiers et des dossiers
-        - id: liens (linkding)
+        id: 0_1558_driverosescopyparty
+      - &ref_8
         title: liens (linkding)
         provider: Liens (Linkding)
         icon: 🔗
         url: https://linkding.lesgrandsvoisins.com/
         description: Gérer nos liens web (favoris / marque pages)
-        - id: markdown (hedgedoc)
+        id: 1_1558_lienslinkding
+      - &ref_9
         title: markdown (hedgedoc)
         provider: Markdown (Hedgedoc)
         icon: 📝
         url: https://mark.lesgrandsvoisins.com/
         description: Editer nos documents collaboratifs en format Markdown
-        - id: tâches (vikunja)
+        id: 2_1558_markdownhedgedoc
+      - &ref_10
         title: tâches (vikunja)
         provider: Tâches (Vikunja)
         icon: ☑️
         url: https://task.lesgrandsvoisins.com/
         description: Coordonner des projets et des tâches
+        id: 3_1558_tchesvikunja
+    filteredItems:
+      - *ref_7
+      - *ref_8
+      - *ref_9
+      - *ref_10
   - name: Mon Compte
     items:
-      - id: compte-keycloak
+      - &ref_11
         title: compte-keycloak
         provider: Compte Keycloak
         icon: 🪪
         url: https://key.lesgrandsvoisins.com/realms/master/account
         description: Interface de mon administration pour moi
-        - id: compte-guichet
+        id: 0_946_comptekeycloak
+      - &ref_12
         title: compte-guichet
         provider: Compte guichet
         icon: 🪪
         url: https://guichet.resdigita.com/user
         description: Ancien gestion d'utilisateur Guichet
-        - id: inscription-infos
+        id: 1_946_compteguichet
+      - &ref_13
         title: inscription-infos
         provider: Infolettre (Listmonk)
         icon: 🗞️
         url: https://list.lesgrandsvoisins.com/subscription/form
         description: Inscription sur nos lettres d'information ListMonk
+        id: 2_946_inscriptioninfos
+    filteredItems:
+      - *ref_11
+      - *ref_12
+      - *ref_13
   - name: Dons
     items:
-      - id: dons-helloasso
+      - &ref_14
         title: dons-helloasso
         provider: Dons HelloAsso
         icon: 🪙
         url: >-
           https://www.helloasso.com/associations/les-grands-voisins/adhesions/souscription-annuelle
         description: Dons HelloAsso pour Les Grands Voisins
-        - id: dons-paypal
+        id: 0_404_donshelloasso
+      - &ref_15
         title: dons-paypal
         provider: Dons Paypal
         icon: 🪙
         url: https://www.paypal.com/donate/?hosted_button_id=BPUUS6H6TP62Y
         description: Dons Paypal pour Les Grands Voisins
-        - id: dons-stripe
+        id: 1_404_donspaypal
+      - &ref_16
         title: dons-stripe
         provider: Dons Stripe
         icon: 🪙
         url: https://donate.stripe.com/fZe7uD07z9hAg0w288
         description: Dons Stripe pour Les Grands Voisins
+        id: 2_404_donsstripe
+    filteredItems:
+      - *ref_14
+      - *ref_15
+      - *ref_16
   - name: Médias sociaux
     items:
-      - id: instagram
+      - &ref_17
         title: instagram
         provider: Instagram
         icon: 📽️
         url: https://www.instagram.com/les_grands_voisins
         description: les_grands_voisins sur Instagram
-        - id: youtube
+        id: 0_1523_instagram
+      - &ref_18
         title: youtube
         provider: YouTube
         icon: 🎥
         url: https://www.youtube.com/@LesGrandsVoisinsCom
         description: '@LesGrandsVoisinsCom sur Youtube'
-        - id: github
+        id: 1_1523_youtube
+      - &ref_19
         title: github
         provider: GitHub
         icon: 👩🏻‍💻
         url: https://github.com/lesgrandsvoisins
         description: lesgrandsvoisins sur GitHub
+        id: 2_1523_github
+    filteredItems:
+      - *ref_17
+      - *ref_18
+      - *ref_19
   - name: Expérimentation
     items:
-      - id: writefreely
+      - &ref_20
         title: writefreely
         provider: Bêta WriteFreely
         icon: ✒️
         url: https://writefreely.lesgrandsvoisins.com/
         description: Blog Write Freely
-        - id: forum
+        id: 0_1728_writefreely
+      - &ref_21
         title: forum
         provider: Bêta Forum
         icon: 💬
         url: https://discourse.lesgrandsvoisins.com/
         description: Forum Discourse
-        - id: fils-de-discussion
+        id: 1_1728_forum
+      - &ref_22
         title: fils-de-discussion
         provider: Bêta Fils de discussion
         icon: 🗨️
         url: https://mm.lgv.info/
         description: Fils de discussion Matter Most
-        - id: ancien-tabelau-de-bord
+        id: 2_1728_filsdediscussion
+      - &ref_23
         title: ancien-tabelau-de-bord
         provider: Bêta Ancien Tabelau-de-Bord
         icon: 🚀
         url: https://www.lgv.info
         description: Ancien tableau de bord Wagtail
-        - id: xandikos
+        id: 3_1728_ancientabelaudebord
+      - &ref_24
         title: xandikos
         provider: Bêta Xandikos
         icon: 🗓️
         url: https://xandikos.lesgv.org
         description: Calendriers Xandikos
+        id: 4_1728_xandikos
+    filteredItems:
+      - *ref_20
+      - *ref_21
+      - *ref_22
+      - *ref_23
+      - *ref_24
   - name: Administration
     items:
-      - id: admin-wagtail
+      - &ref_25
         title: admin-wagtail
         provider: Admin Wagtail
         icon: ⚙️
         url: https://www.lesgrandsvoisins.com/cms-admin/
         description: Administration du portail Wagtail
-        - id: admin-keycloak
+        id: 0_1478_adminwagtail
+      - &ref_26
         title: admin-keycloak
         provider: Admin Keycloak
         icon: ⚙️
         url: https://key.lesgrandsvoisins.com/admin
         description: Administration du serveur Keycloak
-        - id: admin-ghost
+        id: 1_1478_adminkeycloak
+      - &ref_27
         title: admin-ghost
         provider: Admin Ghost
         icon: ⚙️
         url: https://blog.lesgrandsvoisins.com/ghost
         description: Administration du blog Ghost
-        - id: admin-uptime-kuma
+        id: 2_1478_adminghost
+      - &ref_28
         title: admin-uptime-kuma
         provider: Admin Uptime Kuma
         icon: ⚙️
         url: https://list.lesgrandsvoisins.com/
         description: Monitoring par notre Uptime Kuma
-        - id: admin-listmonk
+        id: 3_1478_adminuptimekuma
+      - &ref_29
         title: admin-listmonk
         provider: Admin ListMonk
         icon: ⚙️
         url: https://list.lesgrandsvoisins.com/
         description: Listes de diffusion par notre serveur ListMonk
-        - id: admin-config-magic
+        id: 4_1478_adminlistmonk
+      - &ref_30
         title: admin-config-magic
         provider: Admin Config Magic
         icon: ⚙️
         url: https://www.configmagic.com/
         description: Wikijs de configuration Config Magic
+        id: 5_1478_adminconfigmagic
+    filteredItems:
+      - *ref_25
+      - *ref_26
+      - *ref_27
+      - *ref_28
+      - *ref_29
+      - *ref_30
