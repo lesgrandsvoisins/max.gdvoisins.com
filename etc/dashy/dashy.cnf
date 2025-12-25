@@ -88,12 +88,10 @@ sections:
         icon: ✉️
         color: "#37befe"
         url: https://mail.lesgrandsvoisins.com
-        docurl: https://quartz.resdigita.com/config/services/email/
         description: Webmail et serveur mail des Grands Voisins
       - title: meet
         provider: Meet (Jitsi)
         techno: Jitsi
-        docurl: ""
         icon: 👨‍👩‍👧‍👦
         color: "#0074e0"
         url: https://jitsi.lgv.info/lesgrandsvoisins
