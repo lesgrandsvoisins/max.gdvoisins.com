@@ -14,7 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking = {
+    hostName = "max"; # Define your hostname.
+    # hosts = { "127.0.0.2" = ["max" "max.local"];};
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -261,6 +264,7 @@ security.acme.acceptTerms = true;
     nodejs
     nodenv
     yarn
+    openssl
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
