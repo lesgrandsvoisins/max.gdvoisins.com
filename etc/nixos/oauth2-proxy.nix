@@ -31,7 +31,7 @@ in
       # nginx.proxy = "max.gdvoisins.com";
       nginx = {
         domain = "max.gdvoisins.com";
-        prox = "max.gdvoisins.com";
+        proxy = "max.gdvoisins.com";
       };
       reverseProxy = true;
       # upstream = "http://127.0.0.1:4180";
