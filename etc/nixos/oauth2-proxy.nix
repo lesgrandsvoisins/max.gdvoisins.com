@@ -54,7 +54,7 @@ in
 
       # validateURL = "";
       extraConfig = {
-        codeChallengeMethod = "S256";
+        # code-challenge-method = "S256";
       #   approval-prompt="force";
       #   client-id="seafile";
       #   client-secret-file="/etc/.secrets/.seafile_oauthproxy_keyfile";
