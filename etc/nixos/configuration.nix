@@ -169,9 +169,10 @@ security.acme.acceptTerms = true;
         };
         "/oauth2" = {
           recommendedProxySettings = true;
-          proxyPass = "https://max.local:41443";
+          proxyPass = "https://max.gdvoisins.com:41443";
           extraConfig = ''
-            proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
+            # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
+            proxy_ssl_trusted_certificate /var/lib/acme/max.gdvoisins.com/fullchain.pem;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP               $remote_addr;
             proxy_set_header X-Auth-Request-Redirect $request_uri;
@@ -182,10 +183,11 @@ security.acme.acceptTerms = true;
           '';
         };
         "/oauth2/auth" = {
-          proxyPass = "https://max.local:41443";
+          proxyPass = "https://max.gdvoisins.com:41443";
           
           extraConfig = ''
-            proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
+            # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
+            proxy_ssl_trusted_certificate /var/lib/acme/max.gdvoisins.com/fullchain.pem;
             proxy_set_header Host             $host;
             proxy_set_header X-Real-IP        $remote_addr;
             proxy_set_header X-Forwarded-Uri  $request_uri;
