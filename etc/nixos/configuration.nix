@@ -158,7 +158,7 @@ security.acme.acceptTerms = true;
     dashy = {
       isNormalUser = true;
       description = "Dashy User";
-      extraGroups = [];
+      extraGroups = [ "nginx" ];
       packages = with pkgs; [
         nodejs
         nodenv
