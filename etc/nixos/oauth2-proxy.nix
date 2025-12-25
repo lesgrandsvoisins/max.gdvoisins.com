@@ -33,7 +33,7 @@ in
         enable = true;
         certificate = "/var/lib/acme/max.gdvoisins.com/fullchain.pem";
         key = "/var/lib/acme/max.gdvoisins.com/key.pem";
-        httpsAddress = "max.gdvoisins.com:41443";
+        httpsAddress = "0.0.0.0:41443";
       };
       redirectURL = "https://max.gdvoisins.com:41443/oauth2/callback";
       oidcIssuerUrl = "https://keycloak.gdvoisins.com/realms/master";
