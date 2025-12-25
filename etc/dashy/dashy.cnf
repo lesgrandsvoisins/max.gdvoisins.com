@@ -23,6 +23,19 @@ appConfig:
       serverUrl: https://keycloak.gdvoisins.com
       realm: master
       clientId: maxdashy
+    users:
+    - user: alicia
+      hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
+      type: admin
+    - user: max@lesgrandsvoisins.com
+      hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
+      type: admin
+    - user: chris@lesgrandsvoisins.com
+      hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
+      type: admin
+    - user: chris@mann.fr
+      hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
+      type: admin
   webSearch:
     searchEngine: 'google'
     openingMethod: 'newtab'
