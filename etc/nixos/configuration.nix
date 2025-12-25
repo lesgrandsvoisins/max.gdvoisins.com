@@ -159,7 +159,7 @@ security.acme.acceptTerms = true;
       description = "Dashy User";
       extraGroups = [];
       packages = with pkgs; [
-        nodejs_20
+        nodejs
         nodenv
         yarn
       ];
