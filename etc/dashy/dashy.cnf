@@ -9,7 +9,7 @@ pageInfo:
   - title: blog
     path: https://blog.lesgrandsvoisins.com
   - title: gdvoisins
-    path: https://www.gdvoisins.com",
+    path: https://www.gdvoisins.com
   - title: documentation
     path: https://quartz.resdigita.com
 
@@ -18,6 +18,11 @@ appConfig:
   customCss: '@media (min-width: 1780px) { .home .item-group-container:not(.item-size-large) { grid-template-columns: repeat(3, 1fr); } } .home .item-group-container.item-size-large .item-group-grid, .home .item-group-container.orientation-vertical .item-group-grid { display: flex !important; }'
   auth:
     enableGuestAccess: true
+    enableKeycloak: true
+    keycloak:
+      serverUrl: https://keycloak.gdvoisins.com
+      realm: master
+      clientId: maxdashy
   webSearch:
     searchEngine: 'google'
     openingMethod: 'newtab'
@@ -28,6 +33,9 @@ appConfig:
   faviconApi: faviconkit
   workspaceLandingUrl: https://dashy.to
   enableMultiTasking: false
+  language: sr
+  
+
 
 sections:
   - name: Sites principaux
