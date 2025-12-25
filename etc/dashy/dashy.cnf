@@ -12,6 +12,9 @@ pageInfo:
     - title: documentation
       path: https://quartz.resdigita.com
 appConfig:
+  useProxy: false
+  enableHeaderAuth: true
+  widgetsAlwaysUseProxy: false
   theme: callisto
   customCss: >-
     @media (min-width: 1780px) { .home
@@ -34,7 +37,7 @@ appConfig:
       - user: max
         hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
         type: admin
-      - user: chris
+      - user: chris@mann.fr
         hash: 8ef36dddf6c5fd339bf37388af701d298e7ce0e890b92dcd25f90b70a1cf22ea
         type: admin
   webSearch:
