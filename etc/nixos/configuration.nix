@@ -16,7 +16,7 @@
 
   networking = {
     hostName = "max"; # Define your hostname.
-    # hosts = { "127.0.0.2" = ["max" "max.local"];};
+    hosts = { "127.0.0.2" = ["max" "max.local"];};
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -249,15 +249,15 @@ security.acme.acceptTerms = true;
             ## djlint
             django-debug-toolbar
         ]))
-    python311Full
-    python311Packages.pip
-    python311Packages.pypdf2
-    python311Packages.python-ldap
-    python311Packages.pq
-    python311Packages.aiosasl
-    python311Packages.psycopg2
-    python311Packages.pillow
-    python311Packages.pylibjpeg-libjpeg
+    # python311Full
+    # python311Packages.pip
+    # python311Packages.pypdf2
+    # python311Packages.python-ldap
+    # python311Packages.pq
+    # python311Packages.aiosasl
+    # python311Packages.psycopg2
+    # python311Packages.pillow
+    # python311Packages.pylibjpeg-libjpeg
     busybox
     gnumake
     # For Dashy
