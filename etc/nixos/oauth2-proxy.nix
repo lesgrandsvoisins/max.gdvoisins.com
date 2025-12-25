@@ -90,8 +90,10 @@ in
         reverse-proxy="true";
         session-store-type="cookie";
         set-authorization-header="true";
+        cookie-samesite="lax";
       #   set-xauthrequest="true";
         skip-provider-button="false";
+        oidc-jwks-url="https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/certs";
       #   tls-cert-file="/var/lib/acme/roses.gdvoisins.com/full.pem";
       #   tls-key-file="/var/lib/acme/roses.gdvoisins.com/key.pem";
       #   upstream="file:///var/www/default";
