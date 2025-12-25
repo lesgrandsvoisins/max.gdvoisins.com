@@ -44,6 +44,7 @@ in
       #   approval-prompt="force";
       #   client-id="seafile";
       #   client-secret-file="/etc/.secrets/.seafile_oauthproxy_keyfile";
+        client-secret-file="/etc/.secrets/.maxdash_oauthproxy_keyfile";
         code-challenge-method="S256";
       #   cookie-csrf-expire="5m";
       #   cookie-csrf-per-request="true";
@@ -53,14 +54,14 @@ in
       #   cookie-name="_oauth2_proxy_roses";
       #   cookie-refresh="5m";
       #   cookie-samesite="none";
-       cookie-secret="NgbKPVOqtJndsvg78GuR22BwasVS1J5u";
+        cookie-secret="NgbKPVOqtJndsvg78GuR22BwasVS1J5u";
       #   cookie-secure="false";
       #   email-domain="*" ;
       #   http-address=":4180";
       #   https-address=":41443";
       #   insecure-oidc-allow-unverified-email="true" ;
       #   oidc-issuer-url="https://key.lesgrandsvoisins.com/realms/master";
-      pass-access-token="true";
+        pass-access-token="true";
       #   pass-authorization-header="true";
       #   pass-host-header="true" ;
       #   provider="keycloak-oidc";
