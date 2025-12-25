@@ -1,0 +1,33 @@
+oauth2-proxy  \
+--client-id "maxdash" \
+--client-secret-file "/etc/.secrets/.maxdash_oauthproxy_keyfile" \
+--code-challenge-method "S256" \
+--cookie-csrf-expire "5m" \
+--cookie-csrf-per-request false \
+--cookie-httponly false \
+--cookie-name "_maxdash" \
+--cookie-refresh "5m" \
+--cookie-samesite "lax" \
+--cookie-secret-file "/etc/.secrets/.maxdash_cookie_secret" \
+--cookie-secure \
+--email-domain "*" \
+--https-address "${oauth2IP}:41443" \
+--insecure-oidc-allow-unverified-email \
+--oidc-issuer-url "https://keycloak.gdvoisins.com/realms/master" \
+--pass-access-token \
+--pass-authorization-header \
+--pass-host-header  \
+--pass-user-headers \
+--provider "keycloak-oidc" \
+--proxy-prefix "/oauth2"  \
+--redirect-url "https://max.gdvoisins.com:41443/oauth2/callback" \
+--redeem-url "https://keycloak.gdvoisins.com/realms/master/protocol/openid-connect/token" \
+--request-logging \
+--scope "openid email profile" \
+--session-store-type "cookie" \
+--set-authorization-header \
+--set-xauthrequest \
+--show-debug-on-error \
+--tls-cert-file "/var/lib/acme/max.gdvoisins.com/fullchain.pem" \
+--tls-key-file "/var/lib/acme/max.gdvoisins.com/key.pem" \
+--upstream "file:///var/www/default" 

@@ -8,7 +8,7 @@ in
     users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun" "dashy"];
 
     services.oauth2-proxy = {
-      enable = true;
+      enable = false;
 
       # # Common configuration
       # provider = "keycloak-oidc"; # or "github", "gitlab", "azure", etc.
@@ -85,7 +85,7 @@ in
         set-authorization-header="true";
         set-xauthrequest="true"; # ??? true
         show-debug-on-error="true";
-        skip-jwt-bearer-token="true"; # ???
+        skip-jwt-bearer-tokens="true"; # ???
         skip-oidc-discovery="false";
         skip-provider-button="false";
         tls-cert-file="/var/lib/acme/max.gdvoisins.com/fullchain.pem";
