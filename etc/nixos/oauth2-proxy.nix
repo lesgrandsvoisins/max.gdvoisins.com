@@ -5,7 +5,7 @@ let
     oauth2IP = "192.168.1.10";
 in
 {
-    users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun" "dashy"];
+    # users.users.oauth2-proxy.extraGroups = [ "nginx" "acme" "wwwrun" "dashy"];
 
     services.oauth2-proxy = {
       enable = false;
