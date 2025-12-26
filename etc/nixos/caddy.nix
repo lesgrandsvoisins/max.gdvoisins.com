@@ -94,8 +94,8 @@ in
           authorize with identifiedpolicy
           reverse_proxy https://max.local:8443 {
             transport http {
-              # tls_server_name max.local
-              # tls_insecure_skip_verify
+              tls_server_name max.local
+              tls_insecure_skip_verify
               tls_client_auth /var/run/dashy/ssl/cert.pem /var/run/dashy/ssl/key.pem
             }
           }
