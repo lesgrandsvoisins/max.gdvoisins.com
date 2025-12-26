@@ -9,6 +9,8 @@ stdenv.mkDerivation rec {
   install_commands =   (lib.strings.concatMapStrings (x: "install -Dm644 ${src}/${x} \$out/${x}\n") [
     "assets/portal/templates/lesgrandsvoisins/login.template"
     "assets/images/logo-lesgrandsvoisins-800-400-white.png"
+    "assets/images/favicon.png"
+    "assets/images/favicon.ico"
     ] );
 
   installPhase = lib.strings.concatStrings [
