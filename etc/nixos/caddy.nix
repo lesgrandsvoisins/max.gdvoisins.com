@@ -53,7 +53,7 @@ in
             # static_asset "${caddy-ui-lesgrandsvoisins}/assets/images/logo-lesgrandsvoisins-800-400-white.png" "text/css" "assets/images/logo-lesgrandsvoisins-800-400-white.png"
             # static_asset "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.png" "image/png" "assets/images/logo-lesgrandsvoisins-800-400-white.png"
             static_asset "assets/images/logo-lesgrandsvoisins-800-400-white.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/logo-lesgrandsvoisins-800-400-white.png"
-            static_asset "assets/images/favicon.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.ico"
+            static_asset "assets/images/favicon.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.png"
             static_asset "assets/images/favicon.ico" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.ico"
           }
 
@@ -69,8 +69,8 @@ in
           crypto key verify {env.JWT_SHARED_KEY}
           set user identity subject
           inject headers with claims
-          inject header "X-Username" from "userinfo|preferred_username"
           inject header "X-Useremail" from "email"
+          inject header "X-Username" from "userinfo|preferred_username"
         }
 
         authorization policy userpolicy {
@@ -90,17 +90,22 @@ in
           respond "auth.max.gdvoisins.com is running"
         '';
       };
-      "max.gdvoisins.com" = {
+      "dashy.max.gdvoisins.com" = {
         extraConfig = ''
           authorize with identifiedpolicy
           reverse_proxy http://127.0.0.1:8080
-          # reverse_proxy https://max.local:8443 {
-          #   transport http {
-          #     tls_server_name max.local
-          #     tls_insecure_skip_verify
-          #     tls_client_auth /var/run/dashy/ssl/cert.pem /var/run/dashy/ssl/key.pem
-          #   }
-          # }
+        '';
+      };
+      "max.gdvoisins.com" = {
+        extraConfig = ''
+          authorize with identifiedpolicy
+          reverse_proxy https://max.local:8443 {
+            transport http {
+              tls_server_name max.local
+              tls_insecure_skip_verify
+              tls_client_auth /var/run/dashy/ssl/cert.pem /var/run/dashy/ssl/key.pem
+            }
+          }
         '';
       };
     };
