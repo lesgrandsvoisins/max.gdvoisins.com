@@ -34,6 +34,8 @@
         (pkgs.lib.strings.concatMapStrings (x: "install -Dm644 ./${x} out/${x}\n") [
         "assets/portal/templates/lesgrandsvoisins/login.template"
         "assets/images/logo-lesgrandsvoisins-800-400-white.png"
+        "assets/images/favicon.png"
+        "assets/images/favicon.ico"
         ] )
       ];
       #   install install -Dm644 ./assets/portal/templates/lesgrandsvoisins/login.template out/assets/portal/templates/lesgrandsvoisins/login.template
