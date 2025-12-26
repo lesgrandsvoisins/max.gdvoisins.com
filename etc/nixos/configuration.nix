@@ -32,9 +32,9 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   systemd.tmpfiles.rules = [
-    "d /var/run/dashy/ssl 0755 dashy nginx"
-    "f /var/run/dashy/ssl/key.pem 0640 dashy nginx"
-    "f /var/run/dashy/ssl/cert.pem 0644 dashy nginx"
+    "d /var/run/dashy/ssl 0755 dashy caddy"
+    "f /var/run/dashy/ssl/key.pem 0640 dashy caddy"
+    "f /var/run/dashy/ssl/cert.pem 0644 dashy caddy"
   ];
 
   # Enable networking
@@ -44,7 +44,7 @@ in
   time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "sr_RS@UTF-8";
+  i18n.defaultLocale = "sr_RS@latin";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
