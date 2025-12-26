@@ -13,7 +13,7 @@ in
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = ["github.com/greenpau/caddy-security@v1.1.31"];
-      hash = "sha256-b+hW1MN84eW7OkBIwKHp4VrvHOVi8gsTnTrWAoxmbE0=";
+      hash = "sha256-6WJ403U6XbaNfncIvEJEwUc489yyRhv4jP7H/RVJWlM=";
     };
 
     environmentFile = "/etc/caddy/caddy.env";
