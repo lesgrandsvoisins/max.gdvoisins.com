@@ -83,7 +83,7 @@
       --metrics-tls-cert-file string                        path to certificate file for secure metrics server
       --metrics-tls-key-file string                         path to private key file for secure metrics server
       --oidc-audience-claim strings                         which OIDC claims are used as audience to verify against client id (default [aud])
-      --oidc-email-claim string                             which OIDC claim contains the user's email (default "email")
+      --oidc-email-claim string                             which OIDC claim contains the user's email (defaultprovider "email")
       --oidc-extra-audience strings                         additional audiences allowed to pass audience verification
       --oidc-groups-claim string                            which OIDC claim contains the user groups (default "groups")
       --oidc-issuer-url string                              OpenID Connect issuer URL (ie: https://accounts.google.com)

@@ -13,6 +13,8 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./oauth2-proxy.nix
+      ./nginx.nix
+      ./caddy.nix
     ];
 
   # Bootloader.
@@ -42,7 +44,7 @@ in
   time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "sr_RS@latin";
+  i18n.defaultLocale = "sr_RS@UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
@@ -103,123 +105,24 @@ services.hedgedoc.settings = {
 };
 security.acme.defaults.email = "max@gdvoisins.com";
 security.acme.acceptTerms = true;
- services.nginx = {
-# 	defaultHTTPListenPort = 80;
-# 	defaultSSLListenPort = 443;
-# 	defaultListen = [
-# 		{ addr = "192.168.1.10"; }
-# 		{ addr = "2a01:e34:ec2b:a450:4c4e:ec3e:9e54:6ceb"; }
-# 	];
- 	enable = true;
- 	virtualHosts."max.gdvoisins.com" = {
- 		enableACME = true;
- 		forceSSL = true;
- 		  locations = {
-        "/" = {
-          # proxyPass = "http://localhost:8080";
-          # proxyPass = "https://max.gdvoisins.com:8443";
-          # proxyPass = "http://127.0.0.2:4000";
-          proxyPass = "https://max.local:8443";
-          recommendedProxySettings = true;
-          extraConfig = ''
-            auth_request /oauth2/auth;
-            error_page 401 =403 /oauth2/sign_in;
 
-            # pass information via X-User and X-Email headers to backend,
-            # requires running with --set-xauthrequest flag
-            auth_request_set $user   $upstream_http_x_auth_request_user;
-            auth_request_set $email  $upstream_http_x_auth_request_email;
-            proxy_set_header X-User  $user;
-            proxy_set_header X-Email $email;
+# Enable sound with pipewire.
+services.pulseaudio.enable = false;
+security.rtkit.enable = true;
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+  # If you want to use JACK applications, uncomment this
+  #jack.enable = true;
 
-            # # if you enabled --pass-access-token, this will pass the token to the backend
-            # auth_request_set $token  $upstream_http_x_auth_request_access_token;
-            # proxy_set_header X-Access-Token $token;
+  # use the example session manager (no others are packaged yet so this is enabled by default,
+  # no need to redefine it in your config for now)
+  #media-session.enable = true;
+};
 
-            # # if you enabled --cookie-refresh, this is needed for it to work with auth_request
-            # auth_request_set $auth_cookie $upstream_http_set_cookie;
-            # add_header Set-Cookie $auth_cookie;
-
-            # # When using the --set-authorization-header flag, some provider's cookies can exceed the 4kb
-            # # limit and so the OAuth2 Proxy splits these into multiple parts.
-            # # Nginx normally only copies the first `Set-Cookie` header from the auth_request to the response,
-            # # so if your cookies are larger than 4kb, you will need to extract additional cookies manually.
-            # auth_request_set $auth_cookie_name_upstream_1 $upstream_cookie_auth_cookie_name_1;
-
-            # # Extract the Cookie attributes from the first Set-Cookie header and append them
-            # # to the second part ($upstream_cookie_* variables only contain the raw cookie content)
-            # if ($auth_cookie ~* "(; .*)") {
-            #     set $auth_cookie_name_0 $auth_cookie;
-            #     set $auth_cookie_name_1 "auth_cookie_name_1=$auth_cookie_name_upstream_1$1";
-            # }
-
-            # # Send both Set-Cookie headers now if there was a second part
-            # if ($auth_cookie_name_upstream_1) {
-            #     add_header Set-Cookie $auth_cookie_name_0;
-            #     add_header Set-Cookie $auth_cookie_name_1;
-            # }
-
-            # add_header Access-Control-Allow-Origin *;
-            # add_header Access-Control-Allow-Origin https://max.local:8443;
-            proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Host $host;
-            proxy_set_header X-Forwarded-Proto $scheme;
-          '';
-        };
-        "/oauth2" = {
-          # recommendedProxySettings = true;
-          recommendedProxySettings = false;
-          proxyPass = "https://${oauth2IP}:41443";
-          extraConfig = ''
-            # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
-            proxy_ssl_trusted_certificate /var/lib/acme/max.gdvoisins.com/fullchain.pem;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP               $remote_addr;
-            proxy_set_header X-Auth-Request-Redirect $request_uri;
-            # proxy_set_header X-Real-IP $remote_addr;
-            # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            # proxy_set_header X-Forwarded-Host $host;
-            # proxy_set_header X-Forwarded-Proto $scheme;
-          '';
-        };
-        "/oauth2/auth" = {
-          proxyPass = "https://${oauth2IP}:41443";
-          recommendedProxySettings = false;
-          extraConfig = ''
-            # proxy_ssl_trusted_certificate /var/run/dashy/ssl/cert.pem;
-            proxy_ssl_trusted_certificate /var/lib/acme/max.gdvoisins.com/fullchain.pem;
-            proxy_set_header Host             $host;
-            proxy_set_header X-Real-IP        $remote_addr;
-            proxy_set_header X-Forwarded-Uri  $request_uri;
-            # nginx auth_request includes headers but not body
-            proxy_set_header Content-Length   "";
-            proxy_pass_request_body           off;
-          '';
-        };
-     };
- 	};
- };
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  services.sshd.enable = true;
+services.sshd.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -288,8 +191,6 @@ security.acme.acceptTerms = true;
       '';
     }
     )
-    #vim
-    #django-redis
     cowsay
     home-manager
     curl
@@ -302,13 +203,11 @@ security.acme.acceptTerms = true;
     lzlib
     dig
     killall
-    # inetutils
     pwgen
     openldap
     mysql80
     docker
     docker-compose
-    #    wkhtmltopdf
     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
             pillow
             gunicorn
@@ -319,7 +218,6 @@ security.acme.acceptTerms = true;
             django-libsass
             pylibjpeg-libjpeg
             pypdf2
-            #venvShellHook
             pq
             aiosasl
             psycopg2
@@ -327,25 +225,10 @@ security.acme.acceptTerms = true;
             wagtail
             python-dotenv
             dj-database-url
-            # psycopg2-binary
             django-taggit
-            #wagtail-modeladmin
-            ## wagtailmenus
-            ## Public facing server, I think
             python-keycloak
-            ## Dev
-            ## djlint
             django-debug-toolbar
         ]))
-    # python311Full
-    # python311Packages.pip
-    # python311Packages.pypdf2
-    # python311Packages.python-ldap
-    # python311Packages.pq
-    # python311Packages.aiosasl
-    # python311Packages.psycopg2
-    # python311Packages.pillow
-    # python311Packages.pylibjpeg-libjpeg
     busybox
     gnumake
     # For Dashy
@@ -354,8 +237,6 @@ security.acme.acceptTerms = true;
     yarn
     openssl
     oauth2-proxy
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
