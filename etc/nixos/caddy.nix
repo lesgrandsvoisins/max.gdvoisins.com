@@ -41,7 +41,7 @@ in
           cookie domain gdvoisins.com
           ui {
             links {
-              "Copyparty" https://max.gdvoisins.com:443/ icon "las la-star"
+              "Dashy" https://max.gdvoisins.com:443/ icon "las la-star"
               "Moi" "/whoami" icon "las la-user"
             }
             # custom html header path "${caddy-ui-lesgrandsvoisins}/assets/html/header-lesgrandsvoisins.html"
@@ -53,7 +53,8 @@ in
             # static_asset "${caddy-ui-lesgrandsvoisins}/assets/images/logo-lesgrandsvoisins-800-400-white.png" "text/css" "assets/images/logo-lesgrandsvoisins-800-400-white.png"
             # static_asset "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.png" "image/png" "assets/images/logo-lesgrandsvoisins-800-400-white.png"
             static_asset "assets/images/logo-lesgrandsvoisins-800-400-white.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/logo-lesgrandsvoisins-800-400-white.png"
-            static_asset "assets/images/logo-lesgrandsvoisins-800-400-white.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.png"
+            static_asset "/assets/images/favicon.png" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.ico"
+            static_asset "/assets/images/favicon.ico" "image/png" "${caddy-ui-lesgrandsvoisins}/assets/images/favicon.ico"
           }
 
           transform user {
