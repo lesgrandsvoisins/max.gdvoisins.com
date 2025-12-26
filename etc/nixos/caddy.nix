@@ -70,6 +70,7 @@ in
           set user identity subject
           inject headers with claims
           inject header "X-Username" from "userinfo|preferred_username"
+          inject header "X-Useremail" from "email"
         }
 
         authorization policy userpolicy {
